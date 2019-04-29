@@ -12,7 +12,7 @@
 
 /* once an animated element has been shown, pointer events work
     as usual */
-.animation-complete [animation-data] {
+[animation-data].animation-complete {
     pointer-events: auto;
 }
 
@@ -37,13 +37,107 @@
 }
 
 [animation-data='fade-down'] {
-    transform: translate3d(0, (-1) * var(--transition-distance), 0);
+    transform: translate3d(0, calc((-1) * var(--transition-distance)), 0);
 }
 
 [animation-data='fade-right'] {
-    transform: translate3d((-1) * var(--transition-distance), 0, 0);
+    transform: translate3d(calc((-1) * var(--transition-distance)), 0, 0);
 }
 
 [animation-data='fade-left'] {
     transform: translate3d(var(--transition-distance), 0, 0);
+}
+
+/*
+
+SASS
+
+[animation-data] {
+  @for $i from 1 through 20 {
+    [animation-duration = '#{$i}'] {
+    transition-duration: '#{$i * 100}'+'ms';
+  }
+
+  }
+}
+*/
+
+[animation-data][animation-duration="1"] {
+    transition-duration: 100ms;
+}
+
+[animation-data][animation-duration="2"] {
+    transition-duration: 200ms;
+}
+
+[animation-data][animation-duration="3"] {
+    transition-duration: 300ms;
+}
+
+[animation-data][animation-duration="4"] {
+    transition-duration: 400ms;
+}
+
+[animation-data][animation-duration="5"] {
+    transition-duration: 500ms;
+}
+
+[animation-data][animation-duration="6"] {
+    transition-duration: 600ms;
+}
+
+[animation-data][animation-duration="7"] {
+    transition-duration: 700ms;
+}
+
+[animation-data][animation-duration="8"] {
+    transition-duration: 800ms;
+}
+
+[animation-data][animation-duration="9"] {
+    transition-duration: 900ms;
+}
+
+[animation-data][animation-duration="10"] {
+    transition-duration: 1000ms;
+}
+
+[animation-data][animation-duration="11"] {
+    transition-duration: 1100ms;
+}
+
+[animation-data][animation-duration="12"] {
+    transition-duration: 1200ms;
+}
+
+[animation-data][animation-duration="13"] {
+    transition-duration: 1300ms;
+}
+
+[animation-data][animation-duration="14"] {
+    transition-duration: 1400ms;
+}
+
+[animation-data][animation-duration="15"] {
+    transition-duration: 1500ms;
+}
+
+[animation-data][animation-duration="16"] {
+    transition-duration: 1600ms;
+}
+
+[animation-data][animation-duration="17"] {
+    transition-duration: 1700ms;
+}
+
+[animation-data][animation-duration="18"] {
+    transition-duration: 1800ms;
+}
+
+[animation-data][animation-duration="19"] {
+    transition-duration: 1900ms;
+}
+
+[animation-data][animation-duration="20"] {
+    transition-duration: 2000ms;
 }
