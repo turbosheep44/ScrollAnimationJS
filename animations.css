@@ -1,0 +1,49 @@
+:root {
+    --main-bg-color: brown;
+    --transition-distance: 150px;
+}
+
+/* if there is an animated element that had not been shown yet, 
+    it should not respond to pointer events */
+[animation-data] {
+    pointer-events: none;
+
+}
+
+/* once an animated element has been shown, pointer events work
+    as usual */
+.animation-complete [animation-data] {
+    pointer-events: auto;
+}
+
+/* all animations are 200ms long
+    TODO: ask if we can use SCSS and then create a transition duration & transition delay property */
+[animation-data] {
+    transition-duration: 200ms;
+}
+
+[animation-data^='fade'][animation-data^='fade'] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[animation-data^='fade'][animation-data^='fade'].animation-complete {
+    opacity: 1;
+    transform: none;
+}
+
+[animation-data='fade-up'] {
+    transform: translate3d(0, var(--transition-distance), 0);
+}
+
+[animation-data='fade-down'] {
+    transform: translate3d(0, (-1) * var(--transition-distance), 0);
+}
+
+[animation-data='fade-right'] {
+    transform: translate3d((-1) * var(--transition-distance), 0, 0);
+}
+
+[animation-data='fade-left'] {
+    transform: translate3d(var(--transition-distance), 0, 0);
+}
