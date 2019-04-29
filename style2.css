@@ -80,3 +80,7 @@ body {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.hover:hover{
+    border: 10px solid black;
+}
