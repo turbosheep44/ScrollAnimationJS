@@ -1,0 +1,115 @@
+.fadein-background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: palevioletred;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+#section1 {
+    background-color: crimson;
+}
+
+#section2 {
+    height: 300vh;
+}
+
+#section3 {
+    background-color: blue;
+}
+
+#overlay {
+    position: fixed;
+    /* Sit on top of the page content */
+    display: none;
+    /* Hidden by default */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Black background with opacity */
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+    align-content: center;
+}
+
+.padding {
+    padding: 15vh;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+#section2>.background1 {
+    background-color: purple;
+    z-index: -5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+
+}
+
+#section2>.background2 {
+    background-color: orange;
+    z-index: -4;
+    min-width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#section2>.background3 {
+    background-color: grey;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+
+.panel {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    text-align: center;
+    content: table;
+}
+
+.test {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
