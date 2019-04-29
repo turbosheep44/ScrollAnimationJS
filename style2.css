@@ -19,6 +19,7 @@ section {
 }
 
 #section2 {
+    background-color: white;
 }
 
 #section3 {
@@ -29,8 +30,6 @@ section {
 .padding {
     padding: 15vh;
     position: relative;
-    transform: translateY(-50%);
-    top: 50%;
 }
 
 html {
