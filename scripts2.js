@@ -3,8 +3,7 @@ function initialise() {
 }
 
 function tester() {
-    window.removeEventListener('scroll', onScroll);
-    document.getElementById("abc").offset
+    console.log("test method");
 }
 
 
@@ -132,7 +131,7 @@ function scrollHandler() {
 
     // get the position in pixels of the top of the window
     var scrollPosition = window.pageYOffset;
-    console.log("scroll position >> " + scrollPosition);
+    //console.log("scroll position >> " + scrollPosition);
 
     /* 
     note to self: below it is assumed that hide position > show position
@@ -146,7 +145,7 @@ function scrollHandler() {
             hide the element                  */
 
     animatedElements.forEach(element => {
-        console.log("show  >> " + element.position.show + "\nhide >> " + element.position.hide);
+        //console.log("show  >> " + element.position.show + "\nhide >> " + element.position.hide);
         if (scrollPosition > element.position.hide)
             hideElement(element);
         else if (scrollPosition > element.position.show)
