@@ -52,7 +52,7 @@ function getAnimated() {
     // get all of the variables that contain an attribute animation-data
     // add each of these to an array where the node is put in an object
     return Array.prototype.map.call(document.querySelectorAll("[animation-data]"), node => ({
-        htmlNode
+        node
     }));
 }
 
@@ -71,8 +71,8 @@ function getOption(element, option, defaultValue = false) {
 
 // calculate the scroll position where an element should be revealed based on the 'animation-trigger' option
 function getRevealPosition(element) {
-    // the trigger point is when the trigger element reaches the bottom of the screen
-    let triggerPoint = getTriggerElementVerticalOffset(element) + window.innerHeight;
+    // the trigger point is when the trigger element reaches the top of the screen
+    let triggerPoint = getTriggerElementVerticalOffset(element);
 
     return triggerPoint;
 }
@@ -81,8 +81,8 @@ function getRevealPosition(element) {
 function getHidePosition(element) {
     // check if the user wants to hide the object once it has been scrolled past
     if (getOption(element, "hide") != false)
-        // the hide point is when the trigger element reaches the top of the screen
-        return getTriggerElementVerticalOffset(element);
+        // the hide point is when the trigger element reaches the bottom of the screen
+        return getTriggerElementVerticalOffset(element) + window.innerHeight;
 
     // if the user wants to keep the object in view permanently
     // put a very big value 
@@ -101,7 +101,7 @@ function getTriggerElementVerticalOffset(element) {
     // if the trigger option exists and there is an element with the given id, then set 
     // that element to be the trigger element
     if (trigger && document.getElementById(trigger))
-        triggerElement = document.getElementById(trigger)[0];
+        triggerElement = document.getElementById(trigger);
 
     // the vertical offset is the offset of the trigger element
     return calculateVerticalOffset(triggerElement);
@@ -112,7 +112,7 @@ function calculateVerticalOffset(element) {
     // start with an offset value of 0
     let offsetY = 0;
 
-    while (element && !isNaN(el.offsetTop)) {
+    while (element && !isNaN(element.offsetTop)) {
         // add the offset of this element (from its parent) to the offset value
         offsetY += element.offsetTop;
 
@@ -132,6 +132,7 @@ function scrollHandler() {
 
     // get the position in pixels of the top of the window
     var scrollPosition = window.pageYOffset;
+    console.log("scroll position >> " + scrollPosition);
 
     /* 
     note to self: below it is assumed that hide position > show position
@@ -145,17 +146,18 @@ function scrollHandler() {
             hide the element                  */
 
     animatedElements.forEach(element => {
-        if(scrollPosition > element.position.show)
-            hide(element);
+        console.log("show  >> " + element.position.show + "\nhide >> " + element.position.hide);
+        if (scrollPosition > element.position.hide)
+            hideElement(element);
         else if (scrollPosition > element.position.show)
-            show(element);
+            showElement(element);
         else if (element.animated)
-            hide(element);
+            hideElement(element);
     });
 }
 
 // a function that shows an element
-function showElement() {
+function showElement(element) {
     // if the element is animated already just stop
     if (element.animated) return;
 
