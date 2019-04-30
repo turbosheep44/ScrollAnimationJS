@@ -22,12 +22,21 @@
     transition-duration: 200ms;
 }
 
-[animation-data^='fade'][animation-data^='fade'] {
+
+
+/*
+
+    fade animations
+    appear to fade into view while moving in a direction
+
+*/
+
+[animation-data^='fade'] {
     opacity: 0;
     transition-property: opacity, transform;
 }
 
-[animation-data^='fade'][animation-data^='fade'].animation-complete {
+[animation-data^='fade'].animation-complete {
     opacity: 1;
     transform: none;
 }
@@ -50,6 +59,62 @@
 
 /*
 
+    spin animations
+    appear to spin in 3D around the Y or X axis
+
+*/
+
+[animation-data^='spin'] {
+    transition-property: transform;
+}
+
+[animation-data^='spin'].animation-complete {
+    transform: none;
+}
+
+[animation-data='spin-left'] {
+    transform: rotate3d(0, 1, 0, 90deg);
+}
+
+[animation-data='spin-right'] {
+    transform: rotate3d(0, 1, 0, -90deg);
+}
+
+[animation-data='spin-up'] {
+    transform: rotate3d(1, 0, 0, 90deg);
+}
+
+[animation-data='spin-down'] {
+    transform: rotate3d(1, 0, 0, -90deg);
+}
+
+/*
+
+    rotation animations
+    appear to spin in around the Z axis
+
+*/
+
+[animation-data^='rotate'] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[animation-data^='rotate'].animation-complete {
+    opacity: 1;
+    transform: none;
+}
+
+[animation-data='rotate-left'] {
+    transform: rotate3d(0, 0, 1, 90deg);
+}
+
+[animation-data='rotate-right'] {
+    transform: rotate3d(0, 0, 1, -90deg);
+}
+
+/*
+
 TODO: use SASS if possible
 
 [animation-data] {
@@ -61,6 +126,10 @@ TODO: use SASS if possible
   }
 }
 */
+
+[animation-data][animation-duration="0"] {
+    transition-duration: 0ms;
+}
 
 [animation-data][animation-duration="1"] {
     transition-duration: 100ms;
