@@ -120,7 +120,7 @@ TODO: use SASS if possible
 [animation-data] {
   @for $i from 1 through 20 {
     [animation-duration = '#{$i}'] {
-    transition-duration: '#{$i * 100}'+'ms';
+    transition-duration: #{$i * 100}ms;
   }
 
   }
