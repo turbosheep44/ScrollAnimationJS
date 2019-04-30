@@ -1,16 +1,43 @@
 function initialise() {
     initialiseAnimatedElements();
+
+    const mouseMoveThrottle = 50;
+    window.addEventListener('mousemove', () => throttle(mousemove, mouseMoveThrottle, this, arguments));
+    window.addEventListener('scroll', () => throttle(mousemove, mouseMoveThrottle, this, arguments));
 }
 
 function tester() {
-    console.log("test method");
+    throttle(mousemove, 50, this, []);
 }
 
+function mousemove() {
+    console.log("mouse move event");
+}
+
+
+/*
+    FUNCTION THROTTLE
+    method  : the method to run
+    delay   : the minimum delay between when the method is run
+    context : the context to run the method with
+    args    : argumets to pass to the function    
+*/
+
+const throttle = (method, delay, context, args) => {
+    if (method.timeout == null)
+        method.timeout = setTimeout(function () {
+            method.timeout = null;
+            method.call(context, args);
+        }, delay);
+}
 
 
 /*
     USAGE:
+
+    TO ANIMATE AN ELEMENT INTO VIEW OR OUT OF VIEW:
         animation-data="____"
+            @required
             fade-in-right
             slide-in-left
         animation-complete 
@@ -24,9 +51,17 @@ function tester() {
             initialiseAnimatedElements()
         on scroll (initialised by the loading method)
             scrollHandler()
+
+    TO CREATE A PARALLAX SCROLLING EFFECT:
+        parallax-scroll-ratio:
+            @required
+            determines how far this object will translate per 100 pixels moved
+            0 = no movement, 1 = 100 pixels moved, 1.4 = 140 pixels moved
 */
+
 const ANIMATION_COMPLETE = "animation-complete";
 var animatedElements;
+var 
 
 function initialiseAnimatedElements() {
     // get all the animated elements
