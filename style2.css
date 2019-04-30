@@ -26,6 +26,18 @@ section {
     background-color: orange;
 }
 
+#section4 {
+    background-color: blueviolet;
+}
+
+.float-panel{
+    width: 150px;
+    height: 200px;
+    background-color: blue;
+    position: fixed;
+    right : 10px;
+    top : 50vh;
+}
 
 .padding {
     padding: 15vh;
@@ -77,8 +89,12 @@ body {
 
 .test {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+}
+
+img {
+    width: 200px;
+    height: 100px;
+
 }
 
 .hover:hover{
