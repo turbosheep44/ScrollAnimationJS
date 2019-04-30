@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>{{ animal.name }}</h2>
+    <p> {{ animal.bio }} 
+        <br>
+        Age: <bold>{{ animal.age }}</bold>
+    </p>
+
+    <form>
+        <!-- hidden elements are still added to the post request, however the user will not see a field-->
+        <input type="hidden" name="animalID" value="{{ animal.id }}"><br>
+        <input type ="text" name="email" placeholder="Your Email" required><br>
+        <input type ="text" name="phone" placeholder="Your Phone" required><br>
+        <input type="submit" value="adopt me">
+    </form>
+{% end block %}

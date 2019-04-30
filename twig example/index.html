@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <!--
+        some html markup here
+    -->
+
+    <h1>This is the title of the content</h1>
+    <!-- animals must be passed in from the php code
+        ['animals' => $somePhpVariable]
+    -->
+    {% for animal in animals %}
+        <!-- do somethin to display each animal 
+            each animal object is a dictionary
+        -->
+
+        <h2>{{ animal.name }}</h2>
+
+        <!-- a link to another page which shows the deatilsof the animal 
+            twig directives will work inside strings too "{{ animals.id }}" becomes "4"
+            -->
+        <p><a href="details.php?animalID={{ animal.id }}">Details about {{ animal.name }}</a></p>
+
+    {% end for %}
+
+{% end block %}

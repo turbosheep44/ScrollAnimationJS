@@ -1,0 +1,6 @@
+
+database
+
+create new database >> leave everything default
+
+using sql tab run queries
