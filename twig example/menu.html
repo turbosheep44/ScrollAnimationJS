@@ -1,0 +1,8 @@
+<!-- markup for a menu here 
+
+    this is a partial page since we are not extending a layout we cannot open this page on its own
+-->
+<!-- to create the manu dynamically based on what is in the database we get the datta passed in -->
+{% for type in animalTypes %}
+    <a href="index.php?type={{ type.id }}">{{ type.name }}</a>
+{$ endfor %}

@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    {% include 'menu.html' with { 'animalType': animalTypes } %}
+{% end block %}
+
+{% block content %}
 
     <!--
         some html markup here
@@ -15,12 +19,12 @@
             each animal object is a dictionary
         -->
 
-        <h2>{{ animal.name }}</h2>
+        <h2>{{ animal.animalName }}</h2>
 
         <!-- a link to another page which shows the deatilsof the animal 
             twig directives will work inside strings too "{{ animals.id }}" becomes "4"
             -->
-        <p><a href="details.php?animalID={{ animal.id }}">Details about {{ animal.name }}</a></p>
+        <p><a href="details.php?animalID={{ animal.id }}">Details about {{ animal.animalName }}</a></p>
 
     {% end for %}
 

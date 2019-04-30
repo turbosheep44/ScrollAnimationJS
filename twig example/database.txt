@@ -4,3 +4,28 @@ database
 create new database >> leave everything default
 
 using sql tab run queries
+
+using the wrapper for php from vle:
+
+    QUERY function:
+        returns a result set for a QUERY
+
+    SELECT function:
+        assumes that we are using a select statement, but returns an array of elements
+
+    ERROR function:
+        returns the last error that MySql encountered
+
+    QUOTE function:
+        escapes dangerous characters that are safe for use with the SQL statements
+
+    CONNECT function:
+        depends on the config.ini file that should be in the root that has the 
+        username, password and dbname
+
+    
+user accounts
+    add a user and make sure that they ahve privileges to read and modify data in the DB 
+    (select insert update and delete)
+    NEVER use the root user >> role based access control per user
+    Grant >> NO >> the user cannot grant privileges to other users
