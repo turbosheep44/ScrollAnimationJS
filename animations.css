@@ -126,6 +126,24 @@
 
 /*
 
+    enlarge animation
+    appear to enlarge in from nothing
+
+*/
+
+[animation-data^='enlarge'] {
+    opacity: 0;
+    transform: scale(0);
+    transition-property: opacity, transform;
+}
+
+[animation-data^='enlarge'].animation-complete {
+    opacity: 1;
+    transform: none;
+}
+
+/*
+
 TODO: use SASS if possible
 
 [animation-data] {
