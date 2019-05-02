@@ -19,7 +19,8 @@
                 a
                 impedit hic maxime nihil incidunt quia beatae esse ut, id fugit aliquam quos!</p>
             <Button onclick="tester()">Test</Button> <br>
-            <img class="test" src="https://www.tasteofhome.com/wp-content/uploads/2017/10/Chicken-Pizza_exps30800_FM143298B03_11_8bC_RMS-2.jpg"
+            <img class="test"
+                src="https://www.tasteofhome.com/wp-content/uploads/2017/10/Chicken-Pizza_exps30800_FM143298B03_11_8bC_RMS-2.jpg"
                 alt="">
         </div>
 
@@ -27,8 +28,10 @@
     </section>
 
     <section id="section2">
-        <div class="padding" animation-data="rotate-left" animation-trigger="section2"
-            animation-duration="10" transition="cubic-bezier(0.94, 0.95, 0.05, 0.95)">
+        <div class="padding" animation-data="rotate-left" animation-trigger="section2" animation-duration="10"
+            animation-trigger-position="top-centre" transition="cubic-bezier(0.94, 0.95, 0.05, 0.95)"
+            animation-offset="100"
+            >
             <h1>Hello this is section 2</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, ea. Atque amet nobis similique earum et
                 a
@@ -41,7 +44,7 @@
         </div>
 
         <div class="float-panel" animation-data="rotate-right" animation-trigger="section2"
-            animation-duration="2">
+            animation-trigger-position="bottom-top" animation-duration="2">
             <h3>This is a panel</h3>
             <p>It comes into view on scroll.</p>
 
@@ -50,16 +53,12 @@
     </section>
 
     <section id="section3">
-        <div class="padding">
-            <h1>Henlo this is section 3</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, ea. Atque amet nobis similique earum et
-                a
-                impedit hic maxime nihil incidunt quia beatae esse ut, id fugit aliquam quos!</p> <br>
-            <img animation-data="rotate-right" animation-trigger="section3"
-            animation-duration="2"
-            src="https://www.tasteofhome.com/wp-content/uploads/2017/10/Chicken-Pizza_exps30800_FM143298B03_11_8bC_RMS-2.jpg"
-                alt="">
+        <div class="bg" parallax-scroll-ratio="-0.3">
+            <h2 parallax-scroll-ratio="0.3">
+                <bold>Make yourself <br>AT HOME</bold>
+            </h2>
         </div>
+        <div class="lamp"><img src="./lamp.png" alt="" parallax-scroll-ratio="0.6"></div>
 
 
     </section>
