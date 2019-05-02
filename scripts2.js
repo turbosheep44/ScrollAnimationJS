@@ -41,6 +41,9 @@ const throttle = (method, delay, context, args) => {
             positions: top, centre, bottom
         animation-hide="true"
             do this if you want the element to animate out when the user scrolls past the trigger
+        animation-offset="100"
+            additional pixels to offset when the animation begins
+
 
         on load
             initialiseAnimatedElements()
@@ -63,6 +66,7 @@ const throttle = (method, delay, context, args) => {
 
 const ANIMATION_COMPLETE = "animation-complete";
 const defaultTriggerPosition = "top-top";
+const additionalOffset = 0;
 var animatedElements;
 var parallaxScrolledElements;
 var lastMouseX = 0, lastMouseY = 0;
@@ -175,6 +179,9 @@ function getRevealPosition(element) {
             triggerPoint -= window.innerHeight;
         // to trigger at the top of the screen, no need to change the value
     }
+
+    // add any additional offset
+    triggerPoint += parseFloat(getOption(element, "offset", additionalOffset));
 
     return triggerPoint;
 }
