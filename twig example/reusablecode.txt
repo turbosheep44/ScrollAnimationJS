@@ -1,0 +1,6 @@
+reusable partial pages
+
+header.php
+footer.php
+side.php
+top.php
