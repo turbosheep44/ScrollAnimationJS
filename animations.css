@@ -26,6 +26,17 @@
 
 /*
 
+    parallax scrolled elements
+
+*/
+
+[parallax-scroll-ratio]{
+    transition-property: transform;
+    transition-timing-function: linear;
+}
+
+/*
+
     fade animations
     appear to fade into view while moving in a direction
 
