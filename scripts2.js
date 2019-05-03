@@ -43,7 +43,8 @@ const throttle = (method, delay, context, args) => {
             do this if you want the element to animate out when the user scrolls past the trigger
         animation-offset="100"
             additional pixels to offset when the animation begins
-
+        animation-delay="1"
+            number of seconds to delay the animation from starting after the trigger point is reached
 
         on load
             initialiseAnimatedElements()
@@ -67,6 +68,7 @@ const throttle = (method, delay, context, args) => {
 const ANIMATION_COMPLETE = "animation-complete";
 const defaultTriggerPosition = "top-top";
 const additionalOffset = 0;
+const defaultAnimationDelay = 0;
 var animatedElements;
 var parallaxScrolledElements;
 var lastMouseX = 0, lastMouseY = 0;
@@ -87,6 +89,9 @@ function initialiseAnimatedElements() {
             show: getRevealPosition(element.node),
             hide: getHidePosition(element.node)
         }
+
+        // get the reveal delay
+        element.delay = 1000 * parseFloat(getOption(element.node, "delay", defaultAnimationDelay));
     });
 
     // get all the parallax scrolled elements
@@ -297,8 +302,8 @@ function showElement(element) {
     // if the element is animated already just stop
     if (element.animated) return;
 
-    // add 'animation complete' to the class list
-    element.node.classList.add(ANIMATION_COMPLETE);
+    // add 'animation complete' to the class list after the delay
+    element.timeout = setTimeout(() => element.node.classList.add(ANIMATION_COMPLETE), element.delay);
 
     // set that the element had been animated
     element.animated = true;
@@ -311,6 +316,8 @@ function hideElement(element) {
 
     // remove 'animation complete' from the class list
     element.node.classList.remove(ANIMATION_COMPLETE);
+    // remove the timer if it exists
+    clearTimeout(element.timeout);
 
     // set that the element had not been animated
     element.animated = false;
